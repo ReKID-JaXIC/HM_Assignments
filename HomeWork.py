@@ -1,13 +1,34 @@
-pet_type = "cat"
-pet_name = "Sock"
-print(f"I have a {pet_type} and his name is {pet_name}\n\n\n")
-temp_name = input("Enter Your Name\n>> ")
-temp_age = int(input("Enter Your Age\n>> "))
-perm_data_collection = int(input("Enter Your Yearly Savings\n>> ")) #dont worry, we won't use this later, trust us ;^)
-print(f"\n\nHello {temp_name}! You are currently {temp_age} years old!\n\nIn 10 years, you will be {temp_age + 10} years "
-      f"old.\n\nIf you save ${perm_data_collection} each year, in 5 years you will have saved "
-      f"${perm_data_collection * 5} .\n\nYour average monthly savings is ${round(perm_data_collection / 12, 2)}.\n\n\n")
-print(f"The number of seconds in January is {31*24*60*60}\n\n\n")
-temp_amount = int(input("Enter The Number Of Eggs\n>> "))
-print(f"\n\nThis Makes {temp_amount // 12} dozen eggs and {temp_amount % 12} left over.")
+input_packets = ["S Mary", "P Dee", "P Dee", "P Dee", "E Eileen", "E Mike", "E Joe", "P Dee", "E Vicky", "E George",
+                 "P Dee", "P Joe", "E Sally", "P Joe", "S Pete", "P Dee", "S Bill", "S Chase", "E Price", "P Dee",
+                 "E Sue"]
+pq = []
+sq = []
+eq = []
+for i in input_packets:
+    match i[0]:
+        case "P":
+            pq.append(i)
+        case "S":
+            sq.append(i)
+        case "E":
+            eq.append(i)
+        case _:
+            print("There is a problem in the sorter.")
+            exit(-621)
+
+while pq != [] or sq != [] or eq != []:
+    if len(pq) > 2:
+        for i in range(3):
+            print(pq.pop())
+    else:
+        for i in pq:
+            print(pq.pop())
+    if len(sq) > 1:
+        for i in range(2):
+            print(sq.pop())
+    else:
+        for i in sq:
+            print(sq.pop())
+    if eq != []:
+        print(eq.pop())
 #ran on Python ver 3.10
